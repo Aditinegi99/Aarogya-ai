@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>AarogyaAI — AI Healthcare Assistant</title>
+<meta name="description" content="Early AI health guidance for rural and underserved communities — symptom checker, AI health chat, skin screening, and BMI tools in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<div id="loading-screen" aria-hidden="true">
+  <div>
+    <div class="loader-logo">
+      <div class="loader-ring"></div>
+      <svg viewBox="0 0 100 100" style="position:absolute; inset:8px;" aria-hidden="true">
+        <defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
+        <rect x="0" y="0" width="100" height="100" rx="24" fill="url(#lg1)"/>
+        <rect x="40" y="22" width="20" height="56" rx="6" fill="#fff"/>
+        <rect x="22" y="40" width="56" height="20" rx="6" fill="#fff"/>
+      </svg>
+    </div>
+    <h1 class="loading-title">AarogyaAI</h1>
+    <p class="loading-sub">Initializing your AI health assistant…</p>
+  </div>
+</div>
+
+<div class="bg-blobs" aria-hidden="true">
+  <div class="blob blob1"></div><div class="blob blob2"></div><div class="blob blob3"></div>
+</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <svg class="brand-logo" viewBox="0 0 100 100" role="img" aria-label="AarogyaAI logo">
+        <defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
+        <rect x="0" y="0" width="100" height="100" rx="24" fill="url(#lg2)"/>
+        <rect x="40" y="22" width="20" height="56" rx="6" fill="#fff"/>
+        <rect x="22" y="40" width="56" height="20" rx="6" fill="#fff"/>
+      </svg>
+      <span class="brand-name">AarogyaAI</span>
+    </div>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#symptoms">Symptom Checker</a>
+      <a href="#reports">Reports</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#emergency">Emergency</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn btn-outline btn-icon" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <button class="btn btn-outline nav-cta" id="open-login">Login</button>
+      <button class="btn btn-solid-cyan nav-cta" id="nav-get-started">Get Started</button>
+      <button class="btn btn-outline btn-icon hamburger" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span id="menu-icon">☰</span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-inner">
+      <a href="#features">Features</a>
+      <a href="#symptoms">Symptom Checker</a>
+      <a href="#reports">Reports</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#emergency">Emergency</a>
+      <div style="display:flex; gap:10px; margin-top:8px;">
+        <button class="btn btn-outline btn-block" id="open-login-mobile">Login</button>
+        <button class="btn btn-solid-cyan btn-block" id="mobile-get-started">Get Started</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">✨ Early AI health guidance — built for rural &amp; underserved communities</div>
+      <h1>Your Personal<span class="hero-gradient-text">AI Health Assistant</span></h1>
+      <p class="hero-desc">Check symptoms, get doctor guidance, screen a skin concern, calculate your BMI, and generate a health summary you can carry to a clinic — even with a shaky connection.</p>
+      <div class="hero-cta-row">
+        <button class="btn btn-primary" id="hero-get-started">Get Started <span aria-hidden="true">→</span></button>
+        <button class="btn btn-outline" id="hero-explore">
+          <span style="display:inline-flex; align-items:center; justify-content:center; height:30px; width:30px; border-radius:8px; background:rgba(34,211,238,.14); margin-right:4px;">⚙</span>
+          Explore Features
+        </button>
+      </div>
+      <p class="hero-note">This tool gives general AI-assisted guidance and does <strong>not</strong> replace a qualified doctor. In an emergency, use the Emergency SOS section immediately.</p>
+      <div class="hero-trust">
+        <div class="avatar-stack" aria-hidden="true">
+          <div class="av" style="background:#06b6d4;">RS</div>
+          <div class="av" style="background:#3b82f6;">AK</div>
+          <div class="av" style="background:#a855f7;">NP</div>
+          <div class="av" style="background:#ec4899;">MJ</div>
+          <div class="av" style="background:#f97316;">SV</div>
+        </div>
+        <div>
+          <div class="trust-num">1,20,000+ people</div>
+          <div class="trust-sub">trust AarogyaAI for faster health guidance</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="console-card">
+      <div class="console-glow" aria-hidden="true"></div>
+      <div class="card console pad-md">
+        <div class="console-dots" aria-hidden="true">
+          <div class="dot" style="background:#f87171;"></div><div class="dot" style="background:#facc15;"></div><div class="dot" style="background:#4ade80;"></div>
+          <span class="console-label">AarogyaAI Console</span>
+        </div>
+        <div class="console-msg user">User: I have fever, headache, and body pain.</div>
+        <div class="console-msg bot">AarogyaAI: Possible viral infection. Stay hydrated, monitor your temperature, and consult a physician if symptoms persist for more than 3 days.</div>
+        <div class="console-stats">
+          <div class="console-stat"><div class="k">Risk Level</div><div class="v" style="color:#eab308;">Moderate</div></div>
+          <div class="console-stat"><div class="k">Recommended Doctor</div><div class="v">General Physician</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-band wrap" style="padding:0;">
+    <div class="card">
+      <div class="trust-head">Trusted By <span style="color:var(--cyan-500);">Thousands</span><span class="text-muted" style="display:none;">•</span><span>Loved By <span style="color:var(--purple-500);">Millions</span></span> 💜</div>
+      <div class="stat-grid">
+        <div><div class="num" style="color:var(--cyan-500);">96.8%</div><div class="lbl">AI assistance accuracy*</div></div>
+        <div><div class="num" style="color:var(--blue-500);">24/7</div><div class="lbl">available healthcare support</div></div>
+        <div><div class="num" style="color:var(--purple-500);">18,000+</div><div class="lbl">reports explained by AI</div></div>
+        <div><div class="num" style="color:var(--pink-500);">1,200+</div><div class="lbl">families helped every week</div></div>
+      </div>
+      <p style="margin-top:14px; font-size:0.72rem; color:var(--muted-2); text-align:center;">*Illustrative figures for this demo build.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section">
+  <div class="section-inner card pad-lg">
+    <div class="grid g2">
+      <div>
+        <div class="eyebrow">Our Mission</div>
+        <h2 style="margin-top:18px; font-size:clamp(1.6rem,3.6vw,2.3rem); font-weight:800; line-height:1.25;">No one should be <span style="color:var(--cyan-500);">late for a diagnosis</span></h2>
+        <p style="margin-top:16px; font-size:1.02rem; line-height:1.75; color:var(--muted);">Every year, thousands of people ignore early symptoms because they lack access to timely medical guidance. A simple fever, unusual fatigue, or persistent pain can become dangerous when detected too late.</p>
+        <p style="margin-top:14px; font-size:1.02rem; line-height:1.75; color:var(--muted);">We built AarogyaAI to make healthcare guidance available to every student, every parent, every village, and every family — instantly, affordably, and in their own language.</p>
+      </div>
+      <div class="card" style="background:linear-gradient(135deg, rgba(34,211,238,.1), rgba(59,130,246,.1), rgba(168,85,247,.1)); border-color:rgba(34,211,238,.2); padding:22px;">
+        <div class="grid" style="grid-template-columns:1fr 1fr; gap:14px;">
+          <div class="mission-stat"><div class="n" style="color:var(--cyan-500);">50+</div><div class="l">health conditions covered</div></div>
+          <div class="mission-stat"><div class="n" style="color:var(--blue-500);">2 Languages</div><div class="l">Hindi + English support</div></div>
+          <div class="mission-stat"><div class="n" style="color:var(--purple-500);">Rule‑based AI</div><div class="l">transparent, explainable guidance</div></div>
+          <div class="mission-stat"><div class="n" style="color:var(--pink-500);">24/7</div><div class="l">AI healthcare companion</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA (moved up, matches original order) -->
+<section class="section" id="final-cta">
+  <div class="section-inner cta-shell">
+    <div style="position:absolute; right:-40px; top:-40px; height:160px; width:160px; border-radius:50%; background:rgba(34,211,238,.2); filter:blur(60px);" aria-hidden="true"></div>
+    <div style="position:absolute; left:-40px; bottom:-40px; height:160px; width:160px; border-radius:50%; background:rgba(168,85,247,.2); filter:blur(60px);" aria-hidden="true"></div>
+    <div class="cta-content">
+      <div class="eyebrow">Start your health journey</div>
+      <h2>Your health deserves <span style="color:var(--cyan-500);">timely attention</span></h2>
+      <p>Don't wait for symptoms to become severe. Get instant AI-powered guidance, screen a concern, and take the next step with confidence.</p>
+      <div class="cta-btns">
+        <button class="btn btn-primary" id="cta-create-account">Create Free Account <span aria-hidden="true">→</span></button>
+        <button class="btn btn-outline" id="cta-explore-dashboard">Explore Dashboard</button>
+      </div>
+      <div class="cta-pills">
+        <span>🔒 Secure by design</span><span>📄 PDF health summaries</span><span>🧠 Explainable AI guidance</span><span>🌍 Hindi &amp; English support</span><span>⚡ 24/7 AI assistance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="section" id="dashboard">
+  <div class="section-inner card dash-shell">
+    <div class="dash-top">
+      <div>
+        <div class="eyebrow"><span aria-hidden="true">✨</span> Welcome Back</div>
+        <h2>Your Health Dashboard</h2>
+        <p>Manage your reports, talk with AI, screen concerns and access every healthcare tool from one place.</p>
+      </div>
+      <button class="btn btn-primary" id="dash-open-doctor" style="height:56px; font-size:1.05rem;">Open AI Doctor <span aria-hidden="true">→</span></button>
+    </div>
+
+    <div class="grid g4 stat-cards">
+      <div class="stat-card" style="background:linear-gradient(145deg,rgba(34,211,238,.14),rgba(14,165,233,.06));">
+        <div class="stat-icon" style="background:linear-gradient(135deg,#06b6d4,#0ea5e9);">📊</div>
+        <div class="title">BMI</div>
+        <h3 class="value" id="stat-bmi">--</h3>
+        <p class="status" style="color:#0891b2;" id="stat-bmi-status">Not calculated yet</p>
+      </div>
+      <div class="stat-card" style="background:linear-gradient(145deg,rgba(236,72,153,.14),rgba(217,70,239,.06));">
+        <div class="stat-icon" style="background:linear-gradient(135deg,#ec4899,#d946ef);">🩹</div>
+        <div class="title">Skin AI</div>
+        <h3 class="value" id="stat-skin">0</h3>
+        <p class="status" style="color:#c026d3;">Screenings run</p>
+      </div>
+      <div class="stat-card" style="background:linear-gradient(145deg,rgba(249,115,22,.14),rgba(234,179,8,.06));">
+        <div class="stat-icon" style="background:linear-gradient(135deg,#f97316,#eab308);">📄</div>
+        <div class="title">Reports</div>
+        <h3 class="value" id="stat-reports">0</h3>
+        <p class="status" style="color:#d97706;">Analyzed this session</p>
+      </div>
+      <div class="stat-card" style="background:linear-gradient(145deg,rgba(16,185,129,.14),rgba(34,197,94,.06));">
+        <div class="stat-icon" style="background:linear-gradient(135deg,#10b981,#22c55e);">💬</div>
+        <div class="title">AI Chats</div>
+        <h3 class="value" id="stat-chats">0</h3>
+        <p class="status" style="color:#16a34a;">Messages this session</p>
+      </div>
+    </div>
+
+    <div class="service-grid" style="margin-top:50px;">
+      <div class="svc-eyebrow">Choose a Service</div>
+      <div class="svc-title">Healthcare Features</div>
+      <p class="svc-desc">Access every AI healthcare tool from one beautiful dashboard.</p>
+
+      <div class="grid g3" style="margin-top:24px;">
+        <div class="svc-card" style="background:linear-gradient(145deg,rgba(34,211,238,.12),rgba(59,130,246,.05));">
+          <div class="svc-icon" style="background:linear-gradient(135deg,#06b6d4,#2563eb);">🤖</div>
+          <h3>AI Doctor</h3>
+          <p>Chat with your personal healthcare assistant.</p>
+          <button class="btn btn-primary btn-block go-to" data-target="chat">Start Chat <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="svc-card" style="background:linear-gradient(145deg,rgba(168,85,247,.12),rgba(147,51,234,.05));">
+          <div class="svc-icon" style="background:linear-gradient(135deg,#a855f7,#9333ea);">📄</div>
+          <h3>Blood Report AI</h3>
+          <p>Upload or enter values for an instant reference-range analysis.</p>
+          <button class="btn btn-primary btn-block go-to" data-target="reports">Analyze <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="svc-card" style="background:linear-gradient(145deg,rgba(16,185,129,.12),rgba(5,150,105,.05));">
+          <div class="svc-icon" style="background:linear-gradient(135deg,#10b981,#059669);">🧮</div>
+          <h3>BMI Calculator</h3>
+          <p>Know your BMI with personalized advice.</p>
+          <button class="btn btn-primary btn-block go-to" data-target="bmi">Calculate <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid g2 panel-2col">
+      <div class="panel" style="background:linear-gradient(145deg,rgba(34,211,238,.08),rgba(255,255,255,0));">
+        <div class="panel-head">
+          <div><div class="svc-eyebrow">Reports</div><h3 style="margin-top:6px; font-size:1.4rem; font-weight:800;">Recent Reports</h3></div>
+          <div class="panel-icon" style="background:linear-gradient(135deg,#06b6d4,#2563eb);">📄</div>
+        </div>
+        <div id="recent-reports-list">
+          <div class="report-row"><div><div class="name">CBC_Report.pdf</div><div class="meta">Sample — uploaded today</div></div><button class="btn btn-outline btn-sm demo-report-view">View</button></div>
+          <div class="report-row"><div><div class="name">Vitamin_D_Report.pdf</div><div class="meta">Sample — yesterday</div></div><button class="btn btn-outline btn-sm demo-report-view">View</button></div>
+          <div class="report-row"><div><div class="name">Thyroid_Profile.pdf</div><div class="meta">Sample — 3 days ago</div></div><button class="btn btn-outline btn-sm demo-report-view">View</button></div>
+        </div>
+      </div>
+      <div class="panel" style="background:linear-gradient(145deg,rgba(16,185,129,.08),rgba(255,255,255,0));">
+        <div class="panel-head">
+          <div><div class="svc-eyebrow" style="color:#059669;">Daily Wellness</div><h3 style="margin-top:6px; font-size:1.4rem; font-weight:800;">Today's Health Tips</h3></div>
+          <div class="panel-icon" style="background:linear-gradient(135deg,#10b981,#059669);">💚</div>
+        </div>
+        <div class="tip-row"><div class="dot badge-dot" style="background:#06b6d4;"></div><div><h4>Stay Hydrated</h4><p>Drink 2–3 litres of water throughout the day to maintain proper hydration and improve body functions.</p></div></div>
+        <div class="tip-row"><div class="dot badge-dot" style="background:#22c55e;"></div><div><h4>Move Your Body</h4><p>A simple 30-minute walk or light exercise every day helps improve heart health and energy.</p></div></div>
+        <div class="tip-row"><div class="dot badge-dot" style="background:#f97316;"></div><div><h4>Eat Balanced Meals</h4><p>Choose protein, fresh vegetables, seasonal fruits and whole grains for better immunity.</p></div></div>
+        <div class="tip-row"><div class="dot badge-dot" style="background:#a855f7;"></div><div><h4>Sleep Well</h4><p>Aim for 7–8 hours of quality sleep every night to help your body recover naturally.</p></div></div>
+      </div>
+    </div>
+
+    <div class="sos-card">
+      <div class="sos-inner">
+        <div><h3>Need Emergency Assistance?</h3><p>If you or someone nearby needs immediate medical attention, quickly access the Emergency section with one click.</p></div>
+        <button class="btn btn-solid-red go-to" data-target="emergency" style="height:56px;">Emergency SOS <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="section-inner">
+    <div class="sec-head center">
+      <h2>Everything you need in one platform</h2>
+      <p>Designed for patients, families and healthcare professionals — and built to stay usable on a slow connection.</p>
+    </div>
+    <div class="grid g4" style="margin-top:32px;">
+      <div class="feat-card"><div class="feat-icon">📈</div><h3>AI Symptom Checker</h3><p>Instant symptom analysis with intelligent, explainable health insights.</p></div>
+      <div class="feat-card"><div class="feat-icon">🛡️</div><h3>Doctor Guidance</h3><p>Get the right specialist recommendation for your condition.</p></div>
+      <div class="feat-card"><div class="feat-icon">📄</div><h3>Blood Report AI</h3><p>Upload or enter values and receive an easy-to-understand explanation.</p></div>
+      <div class="feat-card"><div class="feat-icon">🎙️</div><h3>Voice Assistant</h3><p>Talk naturally with AarogyaAI in Hindi or English.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTOR RECOMMENDATION -->
+<section class="section">
+  <div class="section-inner">
+    <div class="doc-head">
+      <div>
+        <div class="eyebrow">Smart Referral</div>
+        <h2 style="margin-top:16px; font-size:clamp(1.6rem,3.6vw,2.3rem); font-weight:800;">Know which doctor to consult</h2>
+        <p style="margin-top:10px; max-width:560px; color:var(--muted);">Based on your symptoms, AarogyaAI suggests the right specialist.</p>
+      </div>
+      <button class="btn btn-solid-cyan go-to" data-target="symptoms">Get Recommendation</button>
+    </div>
+    <div class="grid g4" style="margin-top:28px;">
+      <div class="doc-card"><div class="emoji">🩺</div><h3>General Physician</h3><p>Fever, cough, fatigue</p></div>
+      <div class="doc-card"><div class="emoji">🌿</div><h3>Dermatologist</h3><p>Skin rashes, acne</p></div>
+      <div class="doc-card"><div class="emoji">❤️</div><h3>Cardiologist</h3><p>Chest pain, BP issues</p></div>
+      <div class="doc-card"><div class="emoji">🧠</div><h3>Neurologist</h3><p>Headache, dizziness</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SYMPTOM CHECKER -->
+<section class="section" id="symptoms">
+  <div class="section-inner card pad-lg">
+    <h2 style="font-size:clamp(1.5rem,3.2vw,2rem); font-weight:800;">Disease &amp; Symptom Checker</h2>
+    <p style="margin-top:8px; color:var(--muted);">Describe your symptoms in English, Hindi or Hinglish and let AarogyaAI analyze them.</p>
+
+    <div style="margin-top:24px; display:flex; flex-wrap:wrap; gap:10px;" id="symptom-chips">
+      <button class="chip" data-word="Fever">Fever</button>
+      <button class="chip" data-word="Cough">Cough</button>
+      <button class="chip" data-word="Headache">Headache</button>
+      <button class="chip" data-word="Fatigue">Fatigue</button>
+      <button class="chip" data-word="Chest Pain">Chest Pain</button>
+      <button class="chip" data-word="Shortness of Breath">Shortness of Breath</button>
+      <button class="chip" data-word="Rash">Rash</button>
+      <button class="chip" data-word="Joint Pain">Joint Pain</button>
+    </div>
+
+    <textarea id="symptom-input" class="symptom-box" placeholder="Example: Mujhe 2 din se bukhar hai, gala dard hai aur khansi bhi hai..." aria-label="Describe your symptoms"></textarea>
+
+    <button class="btn btn-solid-cyan" id="analyze-symptoms-btn" style="margin-top:18px;">Analyze Symptoms</button>
+
+    <div id="symptom-result-wrap" style="display:none;">
+      <div class="result-grid" id="symptom-result-grid"></div>
+      <div class="result-actions">
+        <button class="btn btn-outline btn-sm" id="download-symptom-pdf">⬇ Download PDF Summary</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE + CHAT -->
+<section class="section" id="chat">
+  <div class="section-inner grid g2">
+    <div class="card pad-lg">
+      <div class="tool-head">
+        <div class="tool-icon" style="background:rgba(34,211,238,.12); color:#0891b2;">🎙️</div>
+        <div><h3>Voice Conversation</h3><p>Speak naturally in Hindi, English or Hinglish</p></div>
+      </div>
+      <div class="voice-box">
+        <div class="voice-icon-circle" id="voice-icon-circle">🎙️</div>
+        <p style="margin-top:16px; font-size:1.1rem; font-weight:700;" id="voice-status-text">Tap to start speaking</p>
+        <p style="margin-top:6px; font-size:0.88rem; color:var(--muted);">Uses your browser's built-in speech recognition (best supported in Chrome/Edge).</p>
+        <button class="btn btn-solid-cyan" id="voice-btn" style="margin-top:18px;">🎤 Start Speaking</button>
+      </div>
+    </div>
+
+    <div class="card pad-lg">
+      <div class="tool-head">
+        <div class="tool-icon" style="background:rgba(59,130,246,.12); color:#2563eb;">💬</div>
+        <div><h3>AI Health Chatbot</h3><p>Ask anything about your health.</p></div>
+      </div>
+      <div class="chat-window" id="chat-window">
+        <div class="chat-empty" id="chat-empty">Start chatting with AarogyaAI 👋</div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="Ask AarogyaAI..." aria-label="Type your message">
+        <button class="btn btn-solid-cyan" id="chat-send-btn">Ask AI</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPORTS -->
+<section class="section" id="reports">
+  <div class="section-inner grid g2">
+
+    <div class="card pad-lg">
+      <div class="tool-head">
+        <div class="tool-icon" style="background:rgba(59,130,246,.12); color:#2563eb;">📄</div>
+        <div><h3>Blood Report Analysis</h3><p>CBC, Sugar, Thyroid &amp; more</p></div>
+      </div>
+
+      <div class="upload-box blue">
+        <div class="upload-icon">📄</div>
+        <p style="margin-top:12px; font-size:1.1rem; font-weight:700;">Upload Blood Report</p>
+        <p style="margin-top:6px; font-size:0.88rem; color:var(--muted);">Upload a PDF/JPG/PNG to keep with this session, then enter the key values below for an instant reference-range check.</p>
+        <input type="file" id="report-file-input" accept=".pdf,.jpg,.jpeg,.png" class="file-input-native" aria-label="Upload blood report file">
+        <div class="manual-fields">
+          <div><label for="report-hb">Hemoglobin (g/dL)</label><input type="number" step="0.1" id="report-hb" placeholder="e.g. 13.5"></div>
+          <div><label for="report-sugar">Fasting Blood Sugar (mg/dL)</label><input type="number" step="1" id="report-sugar" placeholder="e.g. 95"></div>
+          <div><label for="report-chol">Total Cholesterol (mg/dL)</label><input type="number" step="1" id="report-chol" placeholder="e.g. 180"></div>
+          <div><label for="report-bp">Systolic BP (mmHg, optional)</label><input type="number" step="1" id="report-bp" placeholder="e.g. 120"></div>
+        </div>
+        <button class="btn btn-solid-blue btn-block" id="analyze-report-btn" style="margin-top:16px;">Analyze Report</button>
+        <div class="disclaimer-box yellow">⚠ Automatic OCR of scanned reports needs a connected AI/backend service (see the code's <code>CONFIG.BACKEND_URL</code>). This analyzer checks the numbers you enter against standard reference ranges — it does not replace lab interpretation by your doctor.</div>
+        <div id="report-result" class="skin-result" style="display:none;"></div>
+        <div class="result-actions" id="report-result-actions" style="display:none; justify-content:center;">
+          <button class="btn btn-outline btn-sm" id="download-report-pdf">⬇ Download PDF Summary</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card pad-lg">
+      <div class="tool-head">
+        <div class="tool-icon" style="background:rgba(168,85,247,.12); color:#9333ea;">🩹</div>
+        <div><h3>Skin Screening AI</h3><p>Upload a skin image for a prototype visual screen</p></div>
+      </div>
+      <div class="upload-box purple">
+        <input type="file" id="skin-upload" accept="image/*" class="visually-hidden">
+        <label for="skin-upload" style="cursor:pointer; display:flex; flex-direction:column; align-items:center;">
+          <div class="upload-icon">⬆</div>
+          <p style="margin-top:12px; font-weight:700;">Click to Upload a Photo</p>
+          <p style="margin-top:6px; font-size:0.85rem; color:var(--muted);">Clear, well-lit, close-up photo works best.</p>
+        </label>
+        <div id="skin-preview-wrap" style="display:none;">
+          <div class="upload-preview"><img id="skin-preview-img" alt="Uploaded skin photo preview"></div>
+          <button class="btn btn-solid-purple btn-block" id="analyze-skin-btn" style="margin-top:16px;">Analyze Skin</button>
+        </div>
+        <div id="skin-result" class="skin-result" style="display:none;"></div>
+        <div class="result-actions" id="skin-result-actions" style="display:none; justify-content:center;">
+          <button class="btn btn-outline btn-sm" id="download-skin-pdf">⬇ Download PDF Summary</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BMI -->
+<section class="section" id="bmi">
+  <div class="section-inner card pad-lg">
+    <div class="doc-head">
+      <div>
+        <div class="eyebrow green">Health Tools</div>
+        <h2 style="margin-top:14px; font-size:clamp(1.5rem,3.2vw,2rem); font-weight:800;">BMI Calculator</h2>
+        <p style="margin-top:8px; color:var(--muted);">Calculate your Body Mass Index instantly — fully offline, no upload needed.</p>
+      </div>
+      <button class="btn btn-solid-green" id="calc-bmi-btn">Calculate BMI</button>
+    </div>
+
+    <div class="grid g2" style="margin-top:28px;">
+      <div class="bmi-inputs">
+        <div><label for="bmi-height">Height (cm)</label><input type="number" id="bmi-height" placeholder="Enter height"></div>
+        <div><label for="bmi-weight">Weight (kg)</label><input type="number" id="bmi-weight" placeholder="Enter weight"></div>
+      </div>
+      <div class="bmi-result">
+        <p class="lbl">Your BMI</p>
+        <div class="bmi-num" id="bmi-value">--</div>
+        <p class="bmi-cat" id="bmi-category">Waiting for calculation...</p>
+        <p class="bmi-advice" id="bmi-advice">Enter your height and weight to get personalized health advice.</p>
+        <div class="bmi-scale" aria-hidden="true">
+          <span style="background:#38bdf8;"></span><span style="background:#22c55e;"></span><span style="background:#eab308;"></span><span style="background:#f97316;"></span><span style="background:#ef4444;"></span>
+        </div>
+      </div>
+    </div>
+    <div class="result-actions" id="bmi-result-actions" style="display:none;">
+      <button class="btn btn-outline btn-sm" id="download-bmi-pdf">⬇ Download PDF Summary</button>
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY -->
+<section class="section" id="emergency">
+  <div class="section-inner emg-card">
+    <div class="emg-inner">
+      <div style="max-width:640px;">
+        <div class="eyebrow red">Emergency Support</div>
+        <h2 style="margin-top:14px; font-size:clamp(1.5rem,3.4vw,2.2rem); font-weight:800; color:#b91c1c;">Seek immediate medical attention if you experience</h2>
+        <div class="emg-list">
+          <div class="emg-item"><span class="badge-dot" style="background:#ef4444;"></span>Severe chest pain</div>
+          <div class="emg-item"><span class="badge-dot" style="background:#ef4444;"></span>Difficulty breathing</div>
+          <div class="emg-item"><span class="badge-dot" style="background:#ef4444;"></span>Loss of consciousness</div>
+          <div class="emg-item"><span class="badge-dot" style="background:#ef4444;"></span>Sudden weakness or paralysis</div>
+          <div class="emg-item"><span class="badge-dot" style="background:#ef4444;"></span>Uncontrolled bleeding</div>
+          <div class="emg-item"><span class="badge-dot" style="background:#ef4444;"></span>Severe allergic reaction</div>
+        </div>
+        <p style="margin-top:16px; font-size:0.88rem; color:#b91c1c; line-height:1.6;">AarogyaAI provides guidance, not emergency medical care. Contact local emergency services immediately.</p>
+        <div class="emg-numbers">
+          <a class="emg-num-pill" href="tel:112">📞 112 — All-in-one (India)</a>
+          <a class="emg-num-pill" href="tel:108">🚑 108 — Ambulance</a>
+          <a class="emg-num-pill" href="tel:102">🏥 102 — Health helpline</a>
+        </div>
+      </div>
+      <div class="emg-actions">
+        <a class="btn btn-solid-red btn-block" href="tel:108">🚑 Call Ambulance (108)</a>
+        <button class="btn btn-outline-red btn-block" id="find-hospital-btn">📍 Find Nearby Hospital</button>
+        <a class="btn btn-outline-red btn-block" href="tel:112">📞 Emergency Contacts (112)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENT -->
+<section class="section">
+  <div class="section-inner card pad-lg">
+    <div class="doc-head">
+      <div>
+        <div class="eyebrow blue">Care Guidance</div>
+        <h2 style="margin-top:14px; font-size:clamp(1.5rem,3.2vw,2rem); font-weight:800;">Basic treatment &amp; home care guidance</h2>
+        <p style="margin-top:8px; max-width:640px; color:var(--muted);">General, safe self-care guidance — hydration, rest and diet pointers — with clear disclaimers. Always confirm medicines and dosages with a doctor or pharmacist.</p>
+      </div>
+      <button class="btn btn-outline" id="view-sample-plan-btn">View Sample Plan</button>
+    </div>
+    <div class="grid g3" style="margin-top:26px;">
+      <div class="care-card"><div class="emoji">💧</div><h3>Hydration</h3><p>Drink enough fluids and oral rehydration solutions when fever or vomiting is present.</p></div>
+      <div class="care-card"><div class="emoji">😴</div><h3>Rest &amp; Recovery</h3><p>Adequate sleep and reduced physical exertion help the body recover faster.</p></div>
+      <div class="care-card"><div class="emoji">🍲</div><h3>Diet Support</h3><p>Light, nutritious meals and adequate protein intake can support recovery and immunity.</p></div>
+    </div>
+    <div class="sample-plan" id="sample-plan">
+      <strong>Sample plan — Viral Fever / Flu (general guidance only):</strong><br>
+      <strong>Day 1–2:</strong> Rest, sip fluids/ORS regularly, monitor temperature every 6 hours.<br>
+      <strong>Day 2–3:</strong> Light, easily digestible meals; continue fluids; take any fever medicine only as directed by a doctor or pharmacist.<br>
+      <strong>See a doctor promptly if:</strong> fever crosses 102°F / 39°C, lasts beyond 3 days, or you notice difficulty breathing, persistent vomiting, severe weakness, or a rash.
+    </div>
+    <div class="disclaimer-box yellow" style="margin-top:20px;">⚠️ This guidance is for educational purposes and does not replace professional medical advice, diagnosis, or treatment.</div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="sec-head center">
+      <div class="eyebrow pink" style="margin:0 auto;">Community Stories</div>
+      <h2 style="margin-top:14px;">People already love the experience</h2>
+      <p>Real stories from students, parents, and families who found timely guidance through AarogyaAI.</p>
+    </div>
+    <div class="grid g3" style="margin-top:28px;">
+      <div class="test-card"><div class="test-top"><div class="test-avatar"></div><div><div class="test-name">Riya S.</div><div class="test-sub">Verified user</div></div></div><p class="quote">"The symptom checker helped me decide when I should visit a doctor instead of ignoring my fever for days."</p><div class="stars">★★★★★</div></div>
+      <div class="test-card"><div class="test-top"><div class="test-avatar" style="background:linear-gradient(135deg,#3b82f6,#22d3ee);"></div><div><div class="test-name">Aman K.</div><div class="test-sub">Verified user</div></div></div><p class="quote">"The report explanation was so easy to understand. My parents finally understood what the values meant."</p><div class="stars">★★★★★</div></div>
+      <div class="test-card"><div class="test-top"><div class="test-avatar" style="background:linear-gradient(135deg,#ec4899,#a855f7);"></div><div><div class="test-name">Neha P.</div><div class="test-sub">Verified user</div></div></div><p class="quote">"The interface feels calm and trustworthy. It feels like a healthcare companion, not just another chatbot."</p><div class="stars">★★★★★</div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg width="52" height="52" viewBox="0 0 100 100" style="border-radius:16px;" aria-hidden="true">
+          <rect x="0" y="0" width="100" height="100" rx="24" fill="url(#lg2)"/>
+          <rect x="40" y="22" width="20" height="56" rx="6" fill="#fff"/>
+          <rect x="22" y="40" width="56" height="20" rx="6" fill="#fff"/>
+        </svg>
+        <div><h3>AarogyaAI</h3><p>AI-powered healthcare companion</p></div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/aditi-negi/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Aditinegi99" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:aditi.negiii99@gmail.com">Mail</a>
+      </div>
+    </div>
+    <div class="footer-quote">
+      <p>"We built AarogyaAI because no one should be late for a diagnosis."</p>
+      <p>Every symptom deserves attention, every report deserves clarity, and every person deserves timely healthcare guidance.</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AarogyaAI. All rights reserved.</p>
+      <p style="font-weight:600; color:var(--pink-500);">Made with ❤️ for people who deserve timely healthcare</p>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+<div id="toast-stack" aria-live="polite"></div>
+
+<!-- AUTH MODAL -->
+<div class="modal-backdrop" id="auth-modal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+    <div class="modal-head"><h3 id="auth-modal-title">Welcome to AarogyaAI</h3><button class="modal-close" id="auth-modal-close" aria-label="Close">✕</button></div>
+    <div class="modal-tabs">
+      <button class="modal-tab active" data-tab="login">Login</button>
+      <button class="modal-tab" data-tab="signup">Sign Up</button>
+    </div>
+    <form class="modal-form" id="auth-form">
+      <div id="signup-name-field" style="display:none;"><label for="auth-name">Full name</label><input type="text" id="auth-name" placeholder="Your name"></div>
+      <div><label for="auth-email">Email</label><input type="email" id="auth-email" placeholder="you@example.com" required></div>
+      <div><label for="auth-password">Password</label><input type="password" id="auth-password" placeholder="••••••••" required minlength="4"></div>
+      <button type="submit" class="btn btn-primary btn-block" id="auth-submit-btn" style="margin-top:6px;">Login</button>
+    </form>
+    <p class="modal-note">Demo account — stored only in this browser (localStorage), for prototype purposes. Connect your real auth backend in <code>CONFIG.BACKEND_URL</code> before going live.</p>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/knowledge-base.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/symptom-checker.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/voice.js"></script>
+<script src="js/bmi-calculator.js"></script>
+<script src="js/skin-analysis.js"></script>
+<script src="js/blood-report.js"></script>
+<script src="js/pdf-export.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

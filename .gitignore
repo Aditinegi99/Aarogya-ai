@@ -1,0 +1,18 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Dependencies (only relevant if you add the optional dev server)
+node_modules/
+
+# Logs
+npm-debug.log*
+
+# Local env files, in case a backend URL or API key ever ends up here
+.env
+.env.local
