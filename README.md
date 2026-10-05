@@ -1,4 +1,4 @@
-# AarogyaAI
+# 🩺 AarogyaAI
 
 AarogyaAI is a lightweight AI-powered healthcare platform designed to make basic health guidance more accessible, understandable, and available, especially for rural communities.
 It brings multiple essential health tools together in one simple interface, including symptom checking, AI health chat, skin screening, blood report analysis, BMI calculation, voice assistance, and PDF health summaries.
